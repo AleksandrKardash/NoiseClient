@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.OptionsCarController">
+   <children>
+      <AnchorPane prefHeight="64.0" prefWidth="400.0">
+         <children>
+            <Label layoutX="63.0" layoutY="17.0" prefHeight="25.0" prefWidth="275.0" text="Заполните данные об автомобиле" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="62.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="399.0" prefWidth="404.0">
+         <children>
+            <GridPane layoutX="4.0" layoutY="22.0" prefHeight="359.0" prefWidth="400.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="74.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="126.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="72.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Марка:">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Модель:" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <JFXTextField fx:id="manufacturerCar" maxWidth="120.0" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" />
+                  <JFXTextField fx:id="modelCar" maxWidth="120.0" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" />
+                  <Label text="Класс:" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin></Label>
+                  <JFXComboBox fx:id="comboBoxClass" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label prefHeight="17.0" prefWidth="125.0" text="Элементы " GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label text="для обработки:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="30.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Двери:" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin></Label>
+                  <Label text="шт." GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <JFXComboBox fx:id="comboBoxDoor" onAction="#selectDoor" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Пол:" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Стенки:" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Багажник:" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Потолок:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  </Label>
+                  <JFXToggleButton fx:id="toggleFloor" onAction="#selectFloor" text="Да" toggleColor="#2f13cc" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <JFXToggleButton fx:id="toggleTrunk" onAction="#selectTrunk" text="Да" toggleColor="#2f13cc" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <JFXToggleButton fx:id="toggleWalls" onAction="#selectWalls" text="Да" toggleColor="#2f13cc" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <JFXToggleButton fx:id="toggleRoof" onAction="#selectRoof" text="Да" toggleColor="#2f13cc" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Label text="Капот:" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Арки:" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <JFXToggleButton fx:id="toggleHood" onAction="#selectHood" text="Да" toggleColor="#2f13cc" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <JFXToggleButton fx:id="toggleArch" onAction="#selectArch" text="Да" toggleColor="#2f13cc" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <ImageView fx:id="logo" fitHeight="112.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../image/log3.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="logoA" fitHeight="109.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ImageView fx:id="logoB" fitHeight="109.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ImageView fx:id="logoC" fitHeight="109.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ImageView fx:id="logoD" fitHeight="109.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ImageView fx:id="logoE" fitHeight="109.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ImageView fx:id="logoF" fitHeight="109.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="146.0" prefWidth="400.0">
+         <children>
+            <JFXButton layoutX="51.0" layoutY="14.0" onAction="#nextStep" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: #aaa5c6;" text="Далее" AnchorPane.topAnchor="10.0" />
+            <JFXButton layoutX="51.0" layoutY="35.0" onAction="#showMainWindow" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: #aaa5c6;" text="Главное меню" AnchorPane.topAnchor="45.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

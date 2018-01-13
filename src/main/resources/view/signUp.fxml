@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="396.0" prefWidth="379.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.SignUpController">
+    <children>
+      <Text layoutX="138.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Регистрация">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Text>
+        <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/car.png" />
+            </image>
+        </ImageView>
+      <TextField fx:id="login" layoutX="177.0" layoutY="80.0" prefHeight="25.0" prefWidth="177.0" promptText="Login" />
+      <PasswordField fx:id="password" layoutX="177.0" layoutY="110.0" prefHeight="25.0" prefWidth="177.0" promptText="Password" />
+      <TextField fx:id="name" layoutX="177.0" layoutY="150.0" prefHeight="25.0" prefWidth="177.0" promptText="Имя" />
+      <TextField fx:id="city" layoutX="177.0" layoutY="180.0" prefHeight="25.0" prefWidth="177.0" promptText="Город" />
+      <TextField fx:id="adress" layoutX="177.0" layoutY="210.0" prefHeight="25.0" prefWidth="177.0" promptText="Адрес" />
+      <TextField fx:id="mail" layoutX="177.0" layoutY="240.0" prefHeight="25.0" prefWidth="177.0" promptText="E-mail" />
+      <TextField fx:id="phone" layoutX="177.0" layoutY="270.0" prefHeight="25.0" prefWidth="177.0" promptText="Телефон" />
+      <Label layoutX="87.0" layoutY="84.0" text="Login:" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="84.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="114.0" text="Password:" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="114.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="154.0" text="Имя:" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="154.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="184.0" text="Город:" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="184.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="214.0" text="Адрес:" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="214.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="244.0" text="E-mail:" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="244.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="274.0" text="Телефон:" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="274.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="249.0" layoutY="355.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #aaa5c6;" text="Register..." />
+      <JFXButton layoutX="179.0" layoutY="355.0" mnemonicParsing="false" onAction="#cancelSignUp" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
+      <Label fx:id="labelError" layoutX="86.0" layoutY="310.0" prefHeight="25.0" prefWidth="241.0" textFill="#b50e0e" AnchorPane.leftAnchor="86.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

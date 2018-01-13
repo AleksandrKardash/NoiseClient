@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="394.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.RegController">
+   <children>
+      <TextField fx:id="login" layoutX="114.0" layoutY="88.0" prefHeight="25.0" prefWidth="203.0" promptText="Login">
+      </TextField>
+      <PasswordField fx:id="password" layoutX="114.0" layoutY="129.0" prefHeight="25.0" prefWidth="203.0" promptText="Password" />
+      <JFXButton layoutX="284.0" layoutY="6.0" mnemonicParsing="false" onAction="#showSignUp" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #aaa5c6;" text="Sign UP" />
+      <JFXButton layoutX="253.0" layoutY="179.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #aaa5c6;" text="Log in" />
+      <JFXButton layoutX="173.0" layoutY="179.0" mnemonicParsing="false" onAction="#cancelReg" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="78.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/man.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="78.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/pas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/car.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelError" layoutX="119.0" layoutY="155.0" text=" " textFill="#d31313">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
