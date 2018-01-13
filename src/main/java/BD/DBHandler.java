@@ -101,7 +101,7 @@ public class DBHandler extends Configs {
                 }
             }
 
-            count=2;
+             count=2;
         }
         //возвращаем значение count для определения результата операции
         return count;
