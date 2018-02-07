@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import manager.DataManager;
@@ -97,6 +98,19 @@ public class OptionsCarController extends BaseController implements Initializabl
 
     @FXML
     void nextStep(ActionEvent event) {
+
+        //условие перехода к окну расчета
+        if(!manufacturerCar.getText().trim().isEmpty() && !modelCar.getText().trim().isEmpty()) {
+
+            Noise.getNavigation().load("/view/calculatingCar.fxml").Show();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(200, 100);
+            alert.setContentText("Введите данные!");
+            alert.show();
+        }
 
     }
 

@@ -4,6 +4,8 @@ import BD.DBHandler;
 import Noise.Noise;
 import models.BuilderCar.Car;
 import models.UserBuilder.User;
+import net.NetHelper;
+import net.NetHelperB;
 
 import javax.xml.crypto.Data;
 import java.sql.Connection;
@@ -35,9 +37,11 @@ public class DataManager {
 public User user;
 public Car car;
 
-    public void addUser(User u){
+    public int addUser(User u){
 
         user = u;
+        int reg = NetHelperB.Seril(u);
+        return reg;
 
     }
 

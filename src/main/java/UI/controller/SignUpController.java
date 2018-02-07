@@ -75,9 +75,9 @@ public class SignUpController extends BaseController implements Initializable {
                 .setPassword(password.getText())
                 .build();
         //добавляем User в DataManager
-        DataManager.getInstance().addUser(user);
+        int reg =  DataManager.getInstance().addUser(user);
         //запись User в базу с помощью метода Create  в DBHandler(c проверкой совпадения)
-        int reg = handler.Create(user);
+        //int reg = handler.Create(user);
 
         //основевя логика "регистрации"
         if (reg==1){
@@ -86,6 +86,7 @@ public class SignUpController extends BaseController implements Initializable {
         } else if (reg==2){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(300, 100);
             alert.setContentText("Вы успешно зарегистрированы");
             alert.show();
             Noise.getNavigation().load("/view/mainWindow.fxml").Show();

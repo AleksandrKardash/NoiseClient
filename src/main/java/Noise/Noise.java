@@ -4,6 +4,9 @@ import UI.controller.Navigation;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.NetHelper;
+
+import java.net.InetAddress;
 
 
 // точка входа
@@ -23,6 +26,13 @@ public class Noise extends Application {
         primaryStage.show();
         //navigate to first view
         Noise.getNavigation().load("/view/mainWindow.fxml").Show();
+
+
+        //запускаем паралельный поток для соединения с сервером
+       Runnable connect = new NetHelper();
+        Thread conn = new Thread(connect);
+        conn.start();
+
     }
 
 

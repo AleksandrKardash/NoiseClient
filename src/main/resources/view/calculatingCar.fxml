@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.CalculatingCarController">
+   <children>
+      <AnchorPane prefHeight="382.0" prefWidth="400.0">
+         <children>
+            <ImageView fitHeight="169.0" fitWidth="170.0" layoutX="116.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="107.0">
+               <image>
+                  <Image url="@../../../../../../../../NoiseTest/src/main/resources/image/razrab.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
