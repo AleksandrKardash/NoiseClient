@@ -76,10 +76,8 @@ public class SignUpController extends BaseController implements Initializable {
                 .build();
         //добавляем User в DataManager
         int reg =  DataManager.getInstance().addUser(user);
-        //запись User в базу с помощью метода Create  в DBHandler(c проверкой совпадения)
-        //int reg = handler.Create(user);
 
-        //основевя логика "регистрации"
+        //основная логика "регистрации"
         if (reg==1){
             labelError.setText("Выберите другой Логин!");
 

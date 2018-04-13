@@ -11,14 +11,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import manager.DataManager;
 import models.UserBuilder.User;
-import net.NetHelper;
+import net.MyRequest;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RegController extends BaseController implements Initializable {
@@ -56,53 +56,27 @@ public class RegController extends BaseController implements Initializable {
     @FXML
     void logIn(ActionEvent event) {
 
-        //Проверка соответствия логина и пароля
-        connection = handler.getConnection();
-        String q1 = "SELECT * from users where login=? and password=?";
+        //ArrayList с логином и паролем для формирования запроса на сервер
+        ArrayList<String> list = new ArrayList<String>();
+        list.add(login.getText());
+        list.add(password.getText());
 
-        try {
-            pst = (com.mysql.jdbc.PreparedStatement) connection.prepareStatement(q1);
+        //отправляем запрос на сервер и получаем ответ, приводим к классу User
+        MyRequest request = DataManager.getInstance().addRequest(list);
+        User user = (User)request.getData();
 
-            pst.setString(1, login.getText());
-            pst.setString(2, password.getText());
-            ResultSet rs = pst.executeQuery();
 
-            int count = 0;
+        //Проверяем ответ на наличие не пустого класса User
+        if (user != null) {
+            //добавляем обьект User в DataManager
+            User.reg = true;
+            DataManager.getInstance().addExistUser(user);
+            //переход на главную страницу
+            Noise.getNavigation().load("/view/mainWindow.fxml").Show();
 
-            while (rs.next()) {
-                count++;
-            }
-
-            if (count == 1) {
-                //вернуться к найденой записи с логином и паролем  и загрузить данные User в программу
-                rs.previous();
-                user =  new User.Builder()
-                        .setName(rs.getString(2))
-                        .setCity(rs.getString(3))
-                        .setAdress(rs.getString(4))
-                        .setMail(rs.getString(5))
-                        .setPhone(rs.getString(6))
-                        .setLogin(rs.getString(7))
-                        .setPassword(rs.getString(8))
-                        .build();
-                //добавляем User в DataManager
-                DataManager.getInstance().addUser(user);
-                //переход на главную страницу
-                Noise.getNavigation().load("/view/mainWindow.fxml").Show();
-            //в случае отсутствия совпадений логин/пароль
-            } else {
-                labelError.setText("Введены некорректные данные!");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        //закрываем соединение с БД
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+          //в случае отсутствия совпадений логин/пароль
+        } else {
+            labelError.setText("Введены некорректные данные!");
         }
     }
 

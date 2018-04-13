@@ -1,21 +1,15 @@
 package manager;
 
-import BD.DBHandler;
-import Noise.Noise;
 import models.BuilderCar.Car;
 import models.UserBuilder.User;
+import net.MyRequest;
 import net.NetHelper;
-import net.NetHelperB;
 
-import javax.xml.crypto.Data;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
-//singlton сделать в этом классе!!!!
+//singleton в этом классе!!!!
 //использовать builder для заполнения моделей
-// пользовательский ввод через паттерн Слушатель
+//пользовательский ввод через паттерн Слушатель
 
 //хранит экзэмпляры классов
 public class DataManager {
@@ -36,19 +30,61 @@ public class DataManager {
 //заменить на коллекции
 public User user;
 public Car car;
+private MyRequest request;
+private NetHelper netHelper;
+
+    public void addExistUser(User u){
+    user = u;
+};
 
     public int addUser(User u){
 
         user = u;
-        int reg = NetHelperB.Seril(u);
-        return reg;
+        netHelper = NetHelper.getInstance();
+        int reg = 0;
+        MyRequest r=null;
 
+        //запаковываем обьект User в обьект с инструкциями для его обработки на сервере
+        MyRequest us = new MyRequest(MyRequest.RequestType.USER, user);
+
+        //передаем обект MyRequest на сервер с помощью метода Serial класса NetHelper и получаем ответ в виде обьекта MyRequest
+        try {
+            r = netHelper.Serial(us);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //записываем результат приводя к типу Integer
+        reg = (Integer) r.getData();
+
+        //ответ с сервера о результате обработки обьекта User
+        return reg;
     }
 
     public void addCar(Car c){
 
         car = c;
 
+    }
+
+    public MyRequest addRequest(ArrayList list){
+
+        MyRequest r=null;
+
+        netHelper = NetHelper.getInstance();
+
+        //запаковываем запрос в виде ArrayList в обьект с инструкциями для его обработки на сервере
+        request = new MyRequest(MyRequest.RequestType.LIST, list);
+
+        //передаем обект MyRequest на сервер с помощью метода Serial класса NetHelper и получаем ответ
+        try {
+            r = netHelper.Serial(request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //ответ с сервера о результате обработки обьекта Request
+        return r;
     }
 
 }

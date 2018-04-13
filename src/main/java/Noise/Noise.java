@@ -2,11 +2,7 @@ package Noise;
 
 import UI.controller.Navigation;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import net.NetHelper;
-
-import java.net.InetAddress;
 
 
 // точка входа
@@ -24,14 +20,8 @@ public class Noise extends Application {
         navigation = new Navigation(primaryStage);
         primaryStage.setTitle("Noise");
         primaryStage.show();
-        //navigate to first view
+        //загрузка первого окна
         Noise.getNavigation().load("/view/mainWindow.fxml").Show();
-
-
-        //запускаем паралельный поток для соединения с сервером
-       Runnable connect = new NetHelper();
-        Thread conn = new Thread(connect);
-        conn.start();
 
     }
 
@@ -40,7 +30,8 @@ public static void main(String[] args) throws Exception {
 
         launch(args);
 
-
+}
+}
 
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 //        System.out.print("Введите марку авто: ");
@@ -110,6 +101,3 @@ public static void main(String[] args) throws Exception {
 //            System.out.print("Введено не число!");
 //        }
 //
-    }
-
-}

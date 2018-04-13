@@ -3,88 +3,63 @@ package net;
 import models.UserBuilder.User;
 
 import java.io.*;
-import java.net.*;
+import java.net.InetAddress;
+import java.net.Socket;
 
-public class NetHelper implements Runnable {
+//класс (singleton) для соединения и обмена данными с сервером с помощью Socket (можно заменить на SocketChannel)
+public class NetHelper {
 
-    @Override
-    public void run() {
+    private static NetHelper instance;
 
-        Socket fromserver = null;
+    private NetHelper(){};
 
-        System.out.println("Connecting to... "+"127.0.0.1");
+    public static NetHelper getInstance() {
+
+        if(instance==null)
+            instance = new NetHelper();
+
+        return instance;
+    }
+
+    private Socket fromserver = null;
+    private BufferedOutputStream bos = null;
+    private ObjectOutputStream oos = null;
+    private BufferedReader in  = null;
+    private MyRequest answer;
+
+    //метод для передачи обьекта MyRequest на сервер и получение ответа в виде такого же обьекта
+    public MyRequest Serial(MyRequest r) throws Exception {
 
         try{
+            //создаем соединение с сервером
             fromserver = new Socket(InetAddress.getByName("127.0.0.1"), 4444);
-        }catch (Exception e) {
-            try {
-                fromserver = new Socket("127.0.0.1", 4444);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
 
-        BufferedReader in  = null;
-        try {
-            in = new
-                    BufferedReader(new
-                    InputStreamReader(fromserver.getInputStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        PrintWriter    out = null;
-        try {
-            out = new
-                    PrintWriter(fromserver.getOutputStream(),true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        BufferedReader inu = new
-                BufferedReader(new InputStreamReader(System.in));
+            //определяем выходной поток сокета и конвертируем поток в другой тип для работы с обьектом
+            bos = new BufferedOutputStream(fromserver.getOutputStream());
+            oos = new ObjectOutputStream(bos);
 
-        String fuser,fserver;
+            //записываем обьект и заставляем поток закончить передачу данных
+            oos.writeObject(r);
+            oos.flush();
 
-        try {
-            while ((fuser = inu.readLine())!=null) {
-                out.println(fuser);
-                fserver = in.readLine();
-                System.out.println(fserver);
-                if (fuser.equalsIgnoreCase("close")) break;
-                if (fuser.equalsIgnoreCase("exit")) break;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            //определяем входной поток сокета и считываем ответ, приводя его к классу MyRequest
+            BufferedInputStream bis = new BufferedInputStream(fromserver.getInputStream());
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            answer = (MyRequest)ois.readObject();
 
-        /*
-        while ((fserver = in.readLine())!=null) {
-            out.println(fuser);
-            System.out.println(fserver);
-            if (fuser.equalsIgnoreCase("close")) break;
-            if (fuser.equalsIgnoreCase("exit")) break;
-        }
-        */
-
-        //все закрываем
-        out.close();
-        try {
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            inu.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
+            //закрываем потоки и соединение
+            bis.close();
+            ois.close();
+            oos.close();
+            bos.close();
             fromserver.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        //возвращаем результат с сервера
+        return answer;
     }
+
 }
-
-
-
