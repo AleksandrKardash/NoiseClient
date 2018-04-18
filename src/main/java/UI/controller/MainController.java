@@ -23,6 +23,7 @@ public class MainController extends BaseController implements Initializable  {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //деактивируем кнопку "залогиниться", если пользователь уже вошел в систему
         if (User.reg==true) {
 
         authorization.setText("Thanks!");
@@ -40,6 +41,9 @@ public class MainController extends BaseController implements Initializable  {
 
     }
 
+
+    //actions отвечающие за выбор пользователем типа автомобиля
+    //в каждом из них создается обьект Car с помощью CarBuilder и записывается в DataManager
     @FXML
     void buildPassengerCar(ActionEvent event) {
         Director director = new Director();

@@ -22,7 +22,7 @@ public class Navigation {
     public Navigation(Stage stage)
     {
         this.stage = stage;
-        scene = new Scene(new Pane(),400, 500);
+        scene = new Scene(new Pane(),500, 600);
         stage.setScene(scene);
 
     }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="-Infinity" prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.MenuContentController">
+   <children>
+      <ImageView fitHeight="119.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/log3.png" />
+         </image>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></ImageView>
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Пол" />
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Двери" />
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Багажник" />
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Капот" />
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Потолок" />
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Арки" />
+      <JFXButton prefHeight="45.0" prefWidth="150.0" text="Стенки" />
+   </children>
+</VBox>

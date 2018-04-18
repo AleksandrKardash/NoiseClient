@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.CalculatingCarController">
+    <children>
+        <AnchorPane fx:id="anchorPane" prefHeight="500.0" prefWidth="400.0">
+            <children>
+                <Label layoutX="320.0" layoutY="15.0" text="По элементам">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+            <Label text="ИТОГО:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="250.0">
+               <font>
+                  <Font name="Arial Bold" size="26.0" />
+               </font>
+            </Label>
+                <JFXDrawer fx:id="leftMenu" alignment="TOP_CENTER" defaultDrawerSize="190.0" prefHeight="500.0" prefWidth="150.0" />
+                <JFXHamburger fx:id="hamburger" layoutX="445.0" layoutY="18.0" prefHeight="20.0" prefWidth="55.0" />
+                <TableView layoutX="154.0" layoutY="57.0" prefHeight="443.0" prefWidth="336.0" style="-fx-background-color: #aaa5c6;">
+                    <columns>
+                        <TableColumn fx:id="nameMat" prefWidth="146.0" text="Наименование " />
+                  <TableColumn fx:id="areaMat" prefWidth="79.0" text="Размер" />
+                  <TableColumn fx:id="depthMat" prefWidth="58.0" text="Толщина" />
+                        <TableColumn fx:id="countMat" minWidth="0.0" prefWidth="52.0" text="Кол-во" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+      <AnchorPane prefHeight="102.0" prefWidth="500.0">
+         <children>
+             <JFXButton layoutX="100.0" layoutY="57.0" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #aaa5c6;" text="Назад" AnchorPane.topAnchor="57.0" />
+         </children>
+      </AnchorPane>
+    </children>
+</VBox>

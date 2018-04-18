@@ -74,6 +74,7 @@ public class OptionsCarController extends BaseController implements Initializabl
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
+    //узнаем тип авто выбраного пользователем для загрузки в меню возможных опций
     TypeAuto t = DataManager.getInstance().car.getType();
 
         if (t.equals(TypeAuto.Passenger_Car)) {
@@ -114,12 +115,18 @@ public class OptionsCarController extends BaseController implements Initializabl
 
     }
 
+
+    //определяем действия для всех возможных опций
+    //также добавлям слои на изображение и устанавливаем значение элемента в обьекте Car, если опция активна
     @FXML
     void selectRoof(ActionEvent event) {
        if (toggleRoof.isSelected()){
-        Image img = new Image("/image/logA.png");
-        logoA.setImage(img);} else {
+           Image img = new Image("/image/logA.png");
+           logoA.setImage(img);
+           DataManager.getInstance().car.getElements().roofOn();} else {
            logoA.setImage(null);
+           DataManager.getInstance().car.getElements().roofOff();
+
        }
 
     }
@@ -128,8 +135,10 @@ public class OptionsCarController extends BaseController implements Initializabl
     void selectHood(ActionEvent event) {
         if (toggleHood.isSelected()){
             Image img = new Image("/image/logB.png");
-            logoB.setImage(img);} else {
+            logoB.setImage(img);
+            DataManager.getInstance().car.getElements().hoodOn();} else {
             logoB.setImage(null);
+            DataManager.getInstance().car.getElements().hoodOff();
         }
 
     }
@@ -137,9 +146,34 @@ public class OptionsCarController extends BaseController implements Initializabl
     @FXML
     void selectDoor(ActionEvent event) {
        if (comboBoxDoor.getValue()!=null){
+
+           switch (comboBoxDoor.getValue()){
+
+               case 1:
+                   DataManager.getInstance().car.getElements().doorOn(1);
+                   break;
+
+               case 2:
+                   DataManager.getInstance().car.getElements().doorOn(2);
+                   break;
+
+               case 3:
+                   DataManager.getInstance().car.getElements().doorOn(3);
+                   break;
+
+               case 4:
+                   DataManager.getInstance().car.getElements().doorOn(4);
+                   break;
+
+               case 5:
+                   DataManager.getInstance().car.getElements().doorOn(5);
+                   break;
+           }
+
            Image img = new Image("/image/logC.png");
            logoC.setImage(img);} else {
            logoC.setImage(null);
+           DataManager.getInstance().car.getElements().roofOff();
        }
 
     }
@@ -148,8 +182,10 @@ public class OptionsCarController extends BaseController implements Initializabl
     void selectFloor(ActionEvent event) {
         if (toggleFloor.isSelected()){
             Image img = new Image("/image/logD.png");
-            logoD.setImage(img);} else {
+            logoD.setImage(img);
+            DataManager.getInstance().car.getElements().floorOn();} else {
             logoD.setImage(null);
+            DataManager.getInstance().car.getElements().floorOff();
         }
 
     }
@@ -158,8 +194,10 @@ public class OptionsCarController extends BaseController implements Initializabl
     void selectTrunk(ActionEvent event) {
         if (toggleTrunk.isSelected()){
             Image img = new Image("/image/logE.png");
-            logoE.setImage(img);} else {
+            logoE.setImage(img);
+            DataManager.getInstance().car.getElements().trunkOn();} else {
             logoE.setImage(null);
+            DataManager.getInstance().car.getElements().trunkOff();
         }
 
     }
@@ -168,17 +206,22 @@ public class OptionsCarController extends BaseController implements Initializabl
     void selectWalls(ActionEvent event) {
         if (toggleWalls.isSelected()){
             Image img = new Image("/image/logF.png");
-            logoF.setImage(img);} else {
+            logoF.setImage(img);
+            DataManager.getInstance().car.getElements().wallsOn();} else {
             logoF.setImage(null);
+            DataManager.getInstance().car.getElements().wallsOff();
         }
 
     }
 
     @FXML
     void selectArch(ActionEvent event) {
+        if (toggleWalls.isSelected()){
+            DataManager.getInstance().car.getElements().archOn();} else {
+            DataManager.getInstance().car.getElements().archOff();
+        }
 
     }
-
 
 }
 

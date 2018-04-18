@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -9,26 +9,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="394.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.RegController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.RegController">
    <children>
-      <TextField fx:id="login" layoutX="114.0" layoutY="88.0" prefHeight="25.0" prefWidth="203.0" promptText="Login">
+      <TextField fx:id="login" layoutX="160.0" layoutY="234.0" prefHeight="31.0" prefWidth="232.0" promptText="Login">
       </TextField>
-      <PasswordField fx:id="password" layoutX="114.0" layoutY="129.0" prefHeight="25.0" prefWidth="203.0" promptText="Password" />
-      <JFXButton layoutX="284.0" layoutY="6.0" mnemonicParsing="false" onAction="#showSignUp" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #aaa5c6;" text="Sign UP" />
-      <JFXButton layoutX="253.0" layoutY="179.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #aaa5c6;" text="Log in" />
-      <JFXButton layoutX="173.0" layoutY="179.0" mnemonicParsing="false" onAction="#cancelReg" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="78.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+      <PasswordField fx:id="password" layoutX="160.0" layoutY="280.0" prefHeight="31.0" prefWidth="232.0" promptText="Password" />
+      <JFXButton layoutX="375.0" layoutY="14.0" mnemonicParsing="false" onAction="#showSignUp" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #aaa5c6;" text="Sign UP" />
+      <JFXButton layoutX="320.0" layoutY="337.0" mnemonicParsing="false" onAction="#logIn" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #aaa5c6;" text="Log in" />
+      <JFXButton layoutX="237.0" layoutY="337.0" mnemonicParsing="false" onAction="#cancelReg" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/man.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="78.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="109.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/pas.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="91.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/car.png" />
          </image>

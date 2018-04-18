@@ -33,38 +33,8 @@ public static void main(String[] args) throws Exception {
 }
 }
 
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.print("Введите марку авто: ");
-//        String manufacturer = reader.readLine();
-//        System.out.print("Введите модель авто: ");
-//        String model = reader.readLine();
-//        try {
-//            System.out.print("Введите год выпуска: ");
-//            String y = reader.readLine();
-//            int year = Integer.parseInt(y);
-//            System.out.print("Введите класс авто (1-5): ");
-//            String a = reader.readLine();
-//            int a_class = Integer.parseInt(a);
-//
-//            // создaдим легковой автомобиль и передадим его параметры
-//            PassengerCar mycar = new PassengerCar();
-//            mycar.SetCar(manufacturer, model, year);
-//            // определим класс
-//            mycar.SetClass(a_class);
-//            // определим элементы для обработки по умолчанию
-//            Element element = new Element();
-//            // создадим обьект расчета обработки нужного элемента
-//            Door door = new Door(element.door);
-//
-//            System.out.println("Марка: " + mycar.manufacturer + " Модель: " + mycar.model + " Год: " + mycar.year + " Класс: " + mycar.auto_class);
-//            // пример вывода количества для дверей
-//            System.out.println("Для дверей: " + door.amount(mycar.coeff()));
-//
-//
-//
-//
-//
-//              MaterialCreate one = new MaterialCreate();
+
+//                MaterialCreate one = new MaterialCreate();
 //                one.makeWriteMaterial(0, "SGMe", 0.5, 1);
 //                one.makeWriteMaterial(1, "SGMf", 0.5, 2);
 //                one.makeWriteMaterial(2, "SGMg", 0.5, 3);

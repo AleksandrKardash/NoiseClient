@@ -2,11 +2,11 @@ package models.BuilderCar;
 
 
 public class Car {
-    private final String brand;
-    private final String model;
-    private final TypeAuto type;
-    private final ClassAuto c;
-    private final Elements elements;
+    private String brand;
+    private String model;
+    private TypeAuto type;
+    private ClassAuto c;
+    private Elements elements;
 
     public Car(String brand, String model, TypeAuto type, ClassAuto c,
                Elements elements) {
