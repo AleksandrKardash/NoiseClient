@@ -79,4 +79,13 @@ public class Navigation {
 
         System.out.println("ClearHistory. Total scenes: " + controllers.size());
     }
+
+    //метод для получения ссылки на CalculatingCarController
+    public CalculatingCarController getCalculatingCarController(){
+        if (controllers.get(controllers.size() - 1) instanceof CalculatingCarController) {
+            return (CalculatingCarController) controllers.get(controllers.size() - 1);
+        } else {
+            return null;
+        }
+    }
 }

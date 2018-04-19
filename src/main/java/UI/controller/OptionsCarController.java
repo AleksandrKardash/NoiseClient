@@ -13,7 +13,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import manager.DataManager;
+import models.BuilderCar.ClassAuto;
 import models.BuilderCar.TypeAuto;
+import models.Table.MaterialTable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -103,7 +105,12 @@ public class OptionsCarController extends BaseController implements Initializabl
         //условие перехода к окну расчета
         if(!manufacturerCar.getText().trim().isEmpty() && !modelCar.getText().trim().isEmpty()) {
 
-            Noise.getNavigation().load("/view/calculatingCar.fxml").Show();
+           Noise.getNavigation().load("/view/calculatingCar.fxml").Show();
+           //записываем данные о модели и марке авто в уже созданный обьект Car
+           DataManager.getInstance().car.setBrand(manufacturerCar.getText());
+           DataManager.getInstance().car.setModel(modelCar.getText());
+           //записываем ссылку на только что созданный CalculatingCarController
+           MaterialTable.controller = Noise.getNavigation().getCalculatingCarController();
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -223,5 +230,64 @@ public class OptionsCarController extends BaseController implements Initializabl
 
     }
 
-}
+    @FXML
+    void selectClass(ActionEvent event) {
 
+        if (comboBoxClass.getValue()!=null) {
+
+            switch (comboBoxClass.getValue()) {
+
+                case "A":
+                    DataManager.getInstance().car.setC(new ClassAuto("A"));
+                    break;
+
+                case "B":
+                    DataManager.getInstance().car.setC(new ClassAuto("B"));
+                    break;
+
+                case "C":
+                    DataManager.getInstance().car.setC(new ClassAuto("C"));
+                    break;
+
+                case "D":
+                    DataManager.getInstance().car.setC(new ClassAuto("D"));
+                    break;
+
+                case "E":
+                    DataManager.getInstance().car.setC(new ClassAuto("E"));
+                    break;
+
+                case "F":
+                    DataManager.getInstance().car.setC(new ClassAuto("F"));
+                    break;
+
+                case "M - минивен":
+                    DataManager.getInstance().car.setC(new ClassAuto("M"));
+                    break;
+
+                case "J - кроссовер":
+                    DataManager.getInstance().car.setC(new ClassAuto("J"));
+                    break;
+
+                case "особо малый (микроавтобус)":
+                    DataManager.getInstance().car.setC(new ClassAuto("AB"));
+                    break;
+
+                case "малый (6-7,5 м)":
+                    DataManager.getInstance().car.setC(new ClassAuto("BB"));
+                    break;
+
+                case "средний (8-9,5 м)":
+                    DataManager.getInstance().car.setC(new ClassAuto("CB"));
+                    break;
+
+                case "большой (10,5-12 м)":
+                    DataManager.getInstance().car.setC(new ClassAuto("DB"));
+                    break;
+            }
+
+        } else {
+            DataManager.getInstance().car.setC(new ClassAuto("A"));
+        }
+    }
+}

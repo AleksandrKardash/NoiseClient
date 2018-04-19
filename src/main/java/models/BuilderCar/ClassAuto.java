@@ -3,17 +3,17 @@ package models.BuilderCar;
 
 public class ClassAuto {
 
-    private int c;
+    private String c;
 
-    public  ClassAuto(int c){
+    public  ClassAuto(String c){
         this.c = c;
     }
 
-    public void setC(int c){
+    public void setC(String c){
         this.c = c;
     }
 
-    public int getC(){
+    public String getC(){
         return  c;
     }
 

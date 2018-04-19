@@ -59,7 +59,7 @@
                             <GridPane.margin>
                                 <Insets left="10.0" />
                             </GridPane.margin></Label>
-                        <JFXComboBox fx:id="comboBoxClass" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXComboBox fx:id="comboBoxClass" onAction="#selectClass" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label prefHeight="17.0" prefWidth="125.0" text="Элементы " GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets left="10.0" top="30.0" />

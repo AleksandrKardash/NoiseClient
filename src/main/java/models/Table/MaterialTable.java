@@ -1,14 +1,20 @@
 package models.Table;
 
+import UI.controller.CalculatingCarController;
+import UI.controller.MainController;
+
 //класс для формирования таблицы
 public class MaterialTable {
+
+    //ссылка на controller для переключения по элементам в таблице
+    public static CalculatingCarController controller;
 
     private String nameMat;
     private double areaMat;
     private double depthMat;
-    private int countMat;
+    private double countMat;
 
-    public MaterialTable(String nameMat, double areaMat, double depthMat, int countMat) {
+    public MaterialTable(String nameMat, double areaMat, double depthMat, double countMat) {
         this.nameMat = nameMat;
         this.areaMat = areaMat;
         this.depthMat = depthMat;
@@ -30,7 +36,7 @@ public class MaterialTable {
         this.depthMat = depthMat;
     }
 
-    public void setCountMat(int countMat) {
+    public void setCountMat(double countMat) {
         this.countMat = countMat;
     }
 
@@ -46,7 +52,7 @@ public class MaterialTable {
         return depthMat;
     }
 
-    public int getCountMat() {
+    public double getCountMat() {
         return countMat;
     }
 }

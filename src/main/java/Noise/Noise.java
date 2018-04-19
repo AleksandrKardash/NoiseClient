@@ -1,5 +1,7 @@
 package Noise;
 
+import UI.controller.CalculatingCarController;
+import UI.controller.Controller;
 import UI.controller.Navigation;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -7,7 +9,6 @@ import javafx.stage.Stage;
 
 // точка входа
 public class Noise extends Application {
-
 
     private static Navigation navigation;
     public static Navigation getNavigation()

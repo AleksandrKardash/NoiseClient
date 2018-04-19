@@ -1,0 +1,29 @@
+.background {
+    -fx-background-color: #1d1d1d;
+}
+
+.label {
+
+}
+
+.label-bright {
+
+}
+
+.label-header {
+
+}
+
+.table-view {
+    -fx-base: #aaa5c6;;
+    -fx-control-inner-background: #aaa5c6;;
+    -fx-background-color: #aaa5c6;;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+

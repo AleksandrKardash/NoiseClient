@@ -7,7 +7,7 @@ public class Director {
         builder.setBrandAuto(null);
         builder.setModelAuto(null);
         builder.setTypeAuto(TypeAuto.Passenger_Car);
-        builder.setClassAuto(new ClassAuto(1));
+        builder.setClassAuto(new ClassAuto("A"));
         builder.setElements(new ElementsPassenger());
     }
 
@@ -15,7 +15,7 @@ public class Director {
         builder.setBrandAuto(null);
         builder.setModelAuto(null);
         builder.setTypeAuto(TypeAuto.Truck);
-        builder.setClassAuto(new ClassAuto(1));
+        builder.setClassAuto(new ClassAuto("AT"));
         builder.setElements(new ElementsTruck());
     }
 
@@ -23,7 +23,7 @@ public class Director {
         builder.setBrandAuto(null);
         builder.setModelAuto(null);
         builder.setTypeAuto(TypeAuto.Bus);
-        builder.setClassAuto(new ClassAuto(1));
+        builder.setClassAuto(new ClassAuto("AB"));
         builder.setElements(new ElementsBus());
     }
 }

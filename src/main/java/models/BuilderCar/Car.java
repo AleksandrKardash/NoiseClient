@@ -17,6 +17,26 @@ public class Car {
         this.elements = elements;
     }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setType(TypeAuto type) {
+        this.type = type;
+    }
+
+    public void setC(ClassAuto c) {
+        this.c = c;
+    }
+
+    public void setElements(Elements elements) {
+        this.elements = elements;
+    }
+
     public String getBrand() {
         return brand;
     }
