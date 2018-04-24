@@ -6,6 +6,7 @@ import Noise.Noise;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,6 +32,9 @@ public class RegController extends BaseController implements Initializable {
 
     @FXML
     private PasswordField password;
+
+    @FXML
+    private CheckBox logInSeller;
 
     private DBHandler handler;
     private Connection connection;
@@ -61,23 +65,43 @@ public class RegController extends BaseController implements Initializable {
         list.add(login.getText());
         list.add(password.getText());
 
-        //отправляем запрос на сервер и получаем ответ, приводим к классу User
-        MyRequest request = DataManager.getInstance().addRequest(list);
+        //запаковываем запрос в виде ArrayList в обьект с инструкциями для его обработки, отправляем на сервер и получаем ответ
+        MyRequest request = DataManager.getInstance().addRequest(new MyRequest(MyRequest.RequestType.READ, MyRequest.RequestTypeB.LIST_SIGN_IN, list));
+
+        //ответ приводим к классу User
         User user = (User)request.getData();
 
+        //Определяем способ входа
+        //Проверяем наличие не пустого класса User и права доступа (покупатель или продавец), далее поддгружаем необходимую страницу
+        if (logInSeller.isSelected()){
 
-        //Проверяем ответ на наличие не пустого класса User
-        if (user != null) {
-            //добавляем обьект User в DataManager
-            User.reg = true;
-            DataManager.getInstance().addExistUser(user);
-            //переход на главную страницу
-            Noise.getNavigation().load("/view/mainWindow.fxml").Show();
+            if (user != null && user.getSeller().equals("yes")){
+                //добавляем обьект User в DataManager
+                User.reg = true;
+                DataManager.getInstance().addExistUser(user);
+                //переход на страницу продавца (админку)
+                Noise.getNavigation().load("/view/sellerWindow.fxml").Show();
 
-          //в случае отсутствия совпадений логин/пароль
+            } else {
+                labelError.setText("Нет прав доступа!");
+            }
+
         } else {
-            labelError.setText("Введены некорректные данные!");
+
+            if (user != null) {
+                //добавляем обьект User в DataManager
+                User.reg = true;
+                DataManager.getInstance().addExistUser(user);
+                //переход на главную страницу
+                Noise.getNavigation().load("/view/mainWindow.fxml").Show();
+
+                //в случае отсутствия совпадений логин/пароль
+            } else {
+                labelError.setText("Введены некорректные данные!");
+            }
+
         }
+
     }
 
     //переход к регистрации

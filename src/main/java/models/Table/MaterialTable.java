@@ -3,7 +3,7 @@ package models.Table;
 import UI.controller.CalculatingCarController;
 import UI.controller.MainController;
 
-//класс для формирования таблицы
+//класс для формирования таблицы общего расчета количества материалов
 public class MaterialTable {
 
     //ссылка на controller для переключения по элементам в таблице

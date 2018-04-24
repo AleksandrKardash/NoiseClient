@@ -45,7 +45,7 @@ private NetHelper netHelper;
         MyRequest r=null;
 
         //запаковываем обьект User в обьект с инструкциями для его обработки на сервере
-        MyRequest us = new MyRequest(MyRequest.RequestType.USER, user);
+        MyRequest us = new MyRequest(MyRequest.RequestType.CREATE, MyRequest.RequestTypeB.USER, user);
 
         //передаем обект MyRequest на сервер с помощью метода Serial класса NetHelper и получаем ответ в виде обьекта MyRequest
         try {
@@ -67,24 +67,19 @@ private NetHelper netHelper;
 
     }
 
-    public MyRequest addRequest(ArrayList list){
-
-        MyRequest r=null;
+    public MyRequest addRequest(MyRequest r){
 
         netHelper = NetHelper.getInstance();
 
-        //запаковываем запрос в виде ArrayList в обьект с инструкциями для его обработки на сервере
-        request = new MyRequest(MyRequest.RequestType.LIST, list);
-
         //передаем обект MyRequest на сервер с помощью метода Serial класса NetHelper и получаем ответ
         try {
-            r = netHelper.Serial(request);
+            request = netHelper.Serial(r);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         //ответ с сервера о результате обработки обьекта Request
-        return r;
+        return request;
     }
 
 }

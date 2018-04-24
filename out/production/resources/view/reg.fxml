@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -14,9 +15,14 @@
       <TextField fx:id="login" layoutX="160.0" layoutY="234.0" prefHeight="31.0" prefWidth="232.0" promptText="Login">
       </TextField>
       <PasswordField fx:id="password" layoutX="160.0" layoutY="280.0" prefHeight="31.0" prefWidth="232.0" promptText="Password" />
+      <CheckBox fx:id="logInSeller" layoutX="160.0" layoutY="322.0" mnemonicParsing="false" text="Log in as a seller">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </CheckBox>
       <JFXButton layoutX="375.0" layoutY="14.0" mnemonicParsing="false" onAction="#showSignUp" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #aaa5c6;" text="Sign UP" />
-      <JFXButton layoutX="320.0" layoutY="337.0" mnemonicParsing="false" onAction="#logIn" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #aaa5c6;" text="Log in" />
-      <JFXButton layoutX="237.0" layoutY="337.0" mnemonicParsing="false" onAction="#cancelReg" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
+      <JFXButton layoutX="320.0" layoutY="364.0" mnemonicParsing="false" onAction="#logIn" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #aaa5c6;" text="Log in" />
+      <JFXButton layoutX="237.0" layoutY="364.0" mnemonicParsing="false" onAction="#cancelReg" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/man.png" />
@@ -32,7 +38,7 @@
             <Image url="@../image/car.png" />
          </image>
       </ImageView>
-      <Label fx:id="labelError" layoutX="119.0" layoutY="155.0" text=" " textFill="#d31313">
+      <Label fx:id="labelError" alignment="CENTER" layoutX="160.0" layoutY="340.0" prefHeight="19.0" prefWidth="232.0" text=" " textAlignment="CENTER" textFill="#d31313">
          <font>
             <Font size="13.0" />
          </font>

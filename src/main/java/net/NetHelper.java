@@ -24,7 +24,6 @@ public class NetHelper {
     private Socket fromserver = null;
     private BufferedOutputStream bos = null;
     private ObjectOutputStream oos = null;
-    private BufferedReader in  = null;
     private MyRequest answer;
 
     //метод для передачи обьекта MyRequest на сервер и получение ответа в виде такого же обьекта

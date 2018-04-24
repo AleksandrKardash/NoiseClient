@@ -11,6 +11,7 @@ public class User  implements Serializable {
     private String phone;
     private String login;
     private String password;
+    private String seller;
 
     public static boolean reg=false;
 
@@ -50,62 +51,72 @@ public class User  implements Serializable {
         return password;
     }
 
+    public String getSeller() {
+        return seller;
+    }
+
     public static class Builder implements UserBuilder{
 
 
-    private static User user = new User();
+        private static User user = new User();
 
-    @Override
-    public Builder setName(String n) {
-        user.name = n;
-        return this;
-    }
+        @Override
+        public Builder setName(String n) {
+            user.name = n;
+            return this;
+        }
 
-    @Override
-    public Builder setCity(String c) {
-        user.city = c;
-        return this;
-    }
+        @Override
+        public Builder setCity(String c) {
+            user.city = c;
+            return this;
+        }
 
-    @Override
-    public Builder setAdress(String a) {
-        user.adress = a;
-        return this;
-    }
+        @Override
+        public Builder setAdress(String a) {
+            user.adress = a;
+            return this;
+        }
 
-    @Override
-    public Builder setMail(String m) {
-        user.mail = m;
-        return this;
-    }
+        @Override
+        public Builder setMail(String m) {
+            user.mail = m;
+            return this;
+        }
 
-    @Override
-    public Builder setPhone(String p) {
-        user.phone = p;
-        return this;
-    }
+        @Override
+        public Builder setPhone(String p) {
+            user.phone = p;
+            return this;
+        }
 
-    @Override
-    public Builder setLogin(String l) {
-        user.login = l;
-        return this;
-    }
+        @Override
+        public Builder setLogin(String l) {
+            user.login = l;
+            return this;
+        }
 
-    @Override
-    public Builder setPassword(String p) {
-        user.password = p;
-        return this;
-    }
+        @Override
+        public Builder setPassword(String p) {
+            user.password = p;
+            return this;
+        }
+
+        @Override
+        public Builder setSeller(String s) {
+            user.seller = s;
+            return this;
+        }
 
 
-    @Override
-    public User build() {
-        if (user.name.length()>=1&& user.city.length()>=2&&user.adress.length()>=5 &&user.mail.length()>=5 &&user.phone.length()>=6&& user.login.length()>=1&&user.password.length()>=1){
-            reg=true;
-            return user;
-        } else{
-            return null;
+        @Override
+        public User build() {
+            if (user.name.length()>=1&& user.city.length()>=2&&user.adress.length()>=5 &&user.mail.length()>=5 &&user.phone.length()>=6&& user.login.length()>=1&&user.password.length()>=1){
+                reg=true;
+                return user;
+            } else{
+                return null;
+            }
         }
     }
-  }
 }
