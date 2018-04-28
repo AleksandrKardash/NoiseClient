@@ -110,7 +110,7 @@ public class OptionsCarController extends BaseController implements Initializabl
            DataManager.getInstance().car.setBrand(manufacturerCar.getText());
            DataManager.getInstance().car.setModel(modelCar.getText());
            //записываем ссылку на только что созданный CalculatingCarController
-           MaterialTable.controller = Noise.getNavigation().getCalculatingCarController();
+           Navigation.controller = Noise.getNavigation().getCalculatingCarController();
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

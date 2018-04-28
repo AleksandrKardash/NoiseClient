@@ -111,13 +111,14 @@ public class SellerAddNewProductController implements Initializable {
                 alert.getDialogPane().setPrefSize(200, 100);
                 alert.setContentText("Материал успешно загружен!");
                 alert.show();
-                //очищаем поля
+                //очищаем поля и список
                 manufacturedProduct.clear();
                 nameProduct.clear();
                 secondNameProduct.clear();
                 areaProduct.clear();
                 depthProduct.clear();
                 costProduct.clear();
+                list.clear();
 
             } else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

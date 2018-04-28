@@ -23,56 +23,56 @@ public class MenuContentController implements Initializable {
     @FXML
     void selectFloor(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getFloor());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getFloor());
 
     }
 
     @FXML
     void selectDoor(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getDoor());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getDoor());
 
     }
 
     @FXML
     void selectTrunk(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getTrunk());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getTrunk());
 
     }
 
     @FXML
     void selectHood(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getHood());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getHood());
 
     }
 
     @FXML
     void selectRoof(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getRoof());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getRoof());
 
     }
 
     @FXML
     void selectArch(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getArch());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getArch());
 
     }
 
     @FXML
     void selectWalls(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getWalls());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getWalls());
 
     }
 
     @FXML
     void selectAll(ActionEvent event) {
 
-        MaterialTable.controller.materialData.setAll( MaterialTable.controller.calculateCar.getAllElements());
+        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getAllElements());
 
     }
 

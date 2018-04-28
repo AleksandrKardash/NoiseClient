@@ -3,11 +3,10 @@ package models.Table;
 import UI.controller.CalculatingCarController;
 import UI.controller.MainController;
 
-//класс для формирования таблицы общего расчета количества материалов
-public class MaterialTable {
+import java.io.Serializable;
 
-    //ссылка на controller для переключения по элементам в таблице
-    public static CalculatingCarController controller;
+//класс для формирования таблицы общего расчета количества материалов
+public class MaterialTable implements Serializable {
 
     private String nameMat;
     private double areaMat;

@@ -18,6 +18,8 @@ public class Navigation {
 
     private List<Controller> controllers = new ArrayList<>();
 
+    //ссылка на controller для переключения по элементам в таблице
+    public static CalculatingCarController controller;
 
     public Navigation(Stage stage)
     {
@@ -84,6 +86,15 @@ public class Navigation {
     public CalculatingCarController getCalculatingCarController(){
         if (controllers.get(controllers.size() - 1) instanceof CalculatingCarController) {
             return (CalculatingCarController) controllers.get(controllers.size() - 1);
+        } else {
+            return null;
+        }
+    }
+
+    //метод для получения ссылки на FindSellerController
+    public FindSellerController getFindSellerController (){
+        if (controllers.get(controllers.size() - 1) instanceof FindSellerController) {
+            return (FindSellerController) controllers.get(controllers.size() - 1);
         } else {
             return null;
         }

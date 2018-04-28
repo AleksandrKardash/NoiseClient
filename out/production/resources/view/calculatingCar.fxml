@@ -54,6 +54,8 @@
         <AnchorPane prefHeight="102.0" prefWidth="500.0">
             <children>
                 <JFXButton layoutX="100.0" layoutY="57.0" onAction="#goBack" prefHeight="31.0" prefWidth="300.0" style="-fx-background-color: #aaa5c6;" text="Назад" AnchorPane.topAnchor="57.0" />
+                <JFXButton layoutX="14.0" layoutY="14.0" onAction="#findSeller" prefHeight="31.0" prefWidth="224.0" style="-fx-background-color: #aaa5c6;" text="Найти продавца..." />
+                <JFXButton layoutX="262.0" layoutY="14.0" onAction="#saveList" prefHeight="31.0" prefWidth="224.0" style="-fx-background-color: #aaa5c6;" text="Сохранить..." />
             </children>
         </AnchorPane>
     </children>

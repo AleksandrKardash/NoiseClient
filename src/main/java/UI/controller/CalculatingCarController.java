@@ -122,12 +122,27 @@ public class CalculatingCarController extends BaseController implements Initiali
         //добавляем в ObservableList новый обект, который будет отображен в таблице в виде строки
         materialData.addAll(calculateCar.getAllElements());
 
+        //добавляем подобранные материалы в DataManager для последующей работы с ними
+        DataManager.getInstance().addSelectedMaterials(calculateCar.getAllElements());
+
     }
 
     @FXML
     void goBack(ActionEvent event) {
 
         Noise.getNavigation().GoBack();
+    }
+
+    @FXML
+    void findSeller(ActionEvent event) {
+
+        Noise.getNavigation().load("/view/findSeller.fxml").Show();
+
+    }
+
+    @FXML
+    void saveList(ActionEvent event) {
+
     }
 
 }

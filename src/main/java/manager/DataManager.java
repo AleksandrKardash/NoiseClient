@@ -1,6 +1,7 @@
 package manager;
 
 import models.BuilderCar.Car;
+import models.Table.MaterialTable;
 import models.UserBuilder.User;
 import net.MyRequest;
 import net.NetHelper;
@@ -30,6 +31,8 @@ public class DataManager {
 //заменить на коллекции
 public User user;
 public Car car;
+public ArrayList<MaterialTable> selectedMaterials = new ArrayList<MaterialTable>();
+
 private MyRequest request;
 private NetHelper netHelper;
 
@@ -80,6 +83,10 @@ private NetHelper netHelper;
 
         //ответ с сервера о результате обработки обьекта Request
         return request;
+    }
+
+    public void addSelectedMaterials  (ArrayList<MaterialTable> list){
+        selectedMaterials = list;
     }
 
 }
