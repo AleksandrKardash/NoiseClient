@@ -18,13 +18,11 @@ public class Navigation {
 
     private List<Controller> controllers = new ArrayList<>();
 
-    //ссылка на controller для переключения по элементам в таблице
-    public static CalculatingCarController controller;
 
     public Navigation(Stage stage)
     {
         this.stage = stage;
-        scene = new Scene(new Pane(),500, 600);
+        scene = new Scene(new Pane(),800, 550);
         stage.setScene(scene);
 
     }
@@ -53,9 +51,10 @@ public class Navigation {
     {
         try {
             scene.setRoot((Parent) controller.getView());
-            controllers.add(controller);
 
-            System.out.println("Add to history: " + controller.toString() + ". Total scenes: " + controllers.size());
+            //добавляем созданный Controller в коллекцию
+            setController(controller);
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -82,6 +81,14 @@ public class Navigation {
         System.out.println("ClearHistory. Total scenes: " + controllers.size());
     }
 
+    //загрузить Controller в коллекцию
+    public void setController(Controller controller){
+        controllers.add(controller);
+
+        System.out.println("Add to history: " + controller.toString() + ". Total scenes: " + controllers.size());
+    }
+
+
     //метод для получения ссылки на CalculatingCarController
     public CalculatingCarController getCalculatingCarController(){
         if (controllers.get(controllers.size() - 1) instanceof CalculatingCarController) {
@@ -95,6 +102,15 @@ public class Navigation {
     public FindSellerController getFindSellerController (){
         if (controllers.get(controllers.size() - 1) instanceof FindSellerController) {
             return (FindSellerController) controllers.get(controllers.size() - 1);
+        } else {
+            return null;
+        }
+    }
+
+    //метод для получения ссылки на SellerOrdersController
+    public SellerOrdersController getSellerOrdersController (){
+        if (controllers.get(controllers.size() - 1) instanceof SellerOrdersController) {
+            return (SellerOrdersController) controllers.get(controllers.size() - 1);
         } else {
             return null;
         }

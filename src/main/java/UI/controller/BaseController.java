@@ -20,16 +20,9 @@ public class BaseController implements Controller {
 
     @Override
     public void Show() {
-        PreShowing();
+
         Noise.getNavigation().Show(this);
-        PostShowing();
+
     }
 
-    public void PreShowing()
-    {
-    }
-
-    public void PostShowing()
-    {
-    }
 }

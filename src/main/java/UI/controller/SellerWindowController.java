@@ -1,12 +1,15 @@
 package UI.controller;
 
+import Noise.Noise;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,24 +40,45 @@ public class SellerWindowController extends BaseController implements Initializa
     @FXML
     void showMyOrders(ActionEvent event) throws IOException {
 
-        Parent fxml = FXMLLoader.load(getClass().getResource("/view/sellerOrders.fxml"));
+        //для получения далее ссылки на контроллер создаем обьект FMXLoader, а не используем статический метод
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/view/sellerOrders.fxml"));
+        Parent fxml = (Parent) fxmlLoader.load();
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
+
+        //получение ссылки на контроллер и передача в класс Navigation!
+        Noise.getNavigation().setController(fxmlLoader.getController());
 
     }
 
     @FXML
     void showAddNewProduct(ActionEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/view/sellerAddNewProduct.fxml"));
+
+        //для получения далее ссылки на контроллер создаем обьект FMXLoader, а не используем статический метод
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/view/sellerAddNewProduct.fxml"));
+        Parent fxml = (Parent) fxmlLoader.load();
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
+
+        //получение ссылки на контроллер и передача в класс Navigation!
+        Noise.getNavigation().setController(fxmlLoader.getController());
+
     }
 
     @FXML
     void showMyProduct(ActionEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/view/sellerMyProduct.fxml"));
+
+        //для получения далее ссылки на контроллер создаем обьект FMXLoader, а не используем статический метод
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/view/sellerMyProduct.fxml"));
+        Parent fxml = (Parent) fxmlLoader.load();
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
+
+        //получение ссылки на контроллер и передача в класс Navigation!
+        Noise.getNavigation().setController(fxmlLoader.getController());
 
     }
 
@@ -62,8 +86,6 @@ public class SellerWindowController extends BaseController implements Initializa
     void exitSellerWindow(ActionEvent event) {
         System.exit(0);
     }
-
-
 
 
 }

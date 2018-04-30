@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SellerAddNewProductController implements Initializable {
+public class SellerAddNewProductController extends BaseController implements Initializable {
 
 
     @FXML

@@ -23,56 +23,64 @@ public class MenuContentController implements Initializable {
     @FXML
     void selectFloor(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getFloor());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getFloor());
 
     }
 
     @FXML
     void selectDoor(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getDoor());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getDoor());
 
     }
 
     @FXML
     void selectTrunk(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getTrunk());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getTrunk());
 
     }
 
     @FXML
     void selectHood(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getHood());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getHood());
 
     }
 
     @FXML
     void selectRoof(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getRoof());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getRoof());
 
     }
 
     @FXML
     void selectArch(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getArch());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getArch());
 
     }
 
     @FXML
     void selectWalls(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getWalls());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getWalls());
 
     }
 
     @FXML
     void selectAll(ActionEvent event) {
 
-        Navigation.controller.materialData.setAll( Navigation.controller.calculateCar.getAllElements());
+        Noise.getNavigation().getCalculatingCarController().materialData.setAll(Noise.getNavigation()
+                .getCalculatingCarController().calculateCar.getAllElements());
 
     }
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="350.0" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.SellerOrderMoreInfoController">
+    <children>
+        <TableView fx:id="tableMoreInfo" prefHeight="350.0" prefWidth="400.0" stylesheets="@NTheme.css">
+            <columns>
+                <TableColumn fx:id="nameMat" prefWidth="197.0" text="Наименование" />
+                <TableColumn fx:id="depthMat" minWidth="0.0" prefWidth="63.0" text="Толщина" />
+                <TableColumn fx:id="areaMat" minWidth="0.0" prefWidth="65.0" text="Площадь" />
+                <TableColumn fx:id="countMat" prefWidth="74.0" text="Количество" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>

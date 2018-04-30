@@ -21,9 +21,11 @@
                                 <JFXButton layoutX="18.0" layoutY="135.0" onAction="#confirmOrder" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Подтвердить" AnchorPane.leftAnchor="18.0" />
                                 <TableView fx:id="tableNewOrders" layoutX="133.0" layoutY="4.0" prefHeight="440.0" prefWidth="368.0">
                                     <columns>
-                                        <TableColumn prefWidth="186.0" text="Клиент" />
-                                        <TableColumn prefWidth="85.0" text="Сумма" />
-                                        <TableColumn prefWidth="96.0" text="Дата" />
+                                        <TableColumn fx:id="idOrder" prefWidth="48.0" text="№" />
+                                        <TableColumn fx:id="adress" prefWidth="132.0" text="Клиент" />
+                                        <TableColumn fx:id="telNumber" prefWidth="67.0" text="Телефон" />
+                                        <TableColumn fx:id="value" prefWidth="58.0" text="Сумма" />
+                                        <TableColumn fx:id="dateOrder" prefWidth="61.0" text="Дата" />
                                     </columns>
                                 </TableView>
                             </children></AnchorPane>
@@ -36,13 +38,15 @@
                                 <JFXButton layoutX="18.0" layoutY="138.0" onAction="#delOrder" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Удалить" AnchorPane.leftAnchor="18.0" />
                                 <JFXButton layoutX="24.0" layoutY="212.0" onAction="#refreshOrders" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Обновить" AnchorPane.leftAnchor="18.0" />
                                 <JFXButton layoutX="24.0" layoutY="64.0" onAction="#moreInfo" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Подробнее" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="62.0" />
-                                <TableView fx:id="tableCompletedOrders" layoutX="132.0" layoutY="4.0" prefHeight="440.0" prefWidth="368.0">
-                                    <columns>
-                                        <TableColumn prefWidth="186.0" text="Клиент" />
-                                        <TableColumn prefWidth="85.0" text="Сумма" />
-                                        <TableColumn prefWidth="96.0" text="Дата" />
-                                    </columns>
-                                </TableView>
+                        <TableView fx:id="tableCompletedOrders" layoutX="132.0" layoutY="3.0" prefHeight="440.0" prefWidth="368.0">
+                           <columns>
+                              <TableColumn fx:id="idOrderCompleted" prefWidth="48.0" text="№" />
+                              <TableColumn fx:id="adressCompleted" prefWidth="132.0" text="Клиент" />
+                              <TableColumn fx:id="telNumberCompleted" prefWidth="67.0" text="Телефон" />
+                              <TableColumn fx:id="valueCompleted" prefWidth="58.0" text="Сумма" />
+                              <TableColumn fx:id="dateOrderCompleted" prefWidth="61.0" text="Дата" />
+                           </columns>
+                        </TableView>
                             </children></AnchorPane>
                     </content>
                 </Tab>

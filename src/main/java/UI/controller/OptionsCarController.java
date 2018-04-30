@@ -109,8 +109,6 @@ public class OptionsCarController extends BaseController implements Initializabl
            //записываем данные о модели и марке авто в уже созданный обьект Car
            DataManager.getInstance().car.setBrand(manufacturerCar.getText());
            DataManager.getInstance().car.setModel(modelCar.getText());
-           //записываем ссылку на только что созданный CalculatingCarController
-           Navigation.controller = Noise.getNavigation().getCalculatingCarController();
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

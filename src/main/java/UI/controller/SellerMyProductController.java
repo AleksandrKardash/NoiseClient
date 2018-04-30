@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SellerMyProductController implements Initializable {
+public class SellerMyProductController extends BaseController implements Initializable {
 
     private ObservableList<SellerMaterialTable> myMaterialData = FXCollections.observableArrayList();
 
