@@ -17,10 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import manager.DataManager;
-import models.Calculate.Calculate;
-import models.Calculate.CalculateBus;
-import models.Calculate.CalculatePassengerCar;
-import models.Calculate.CalculateTruck;
+import models.Calculate.*;
 import models.Table.MaterialTable;
 
 import java.io.IOException;
@@ -98,26 +95,51 @@ public class CalculatingCarController extends BaseController implements Initiali
 
         // заполняем таблицу данными
         materialTable.setItems(materialData);
+
+        //рассчитаем примерный вес материала
+        Double w = 0.0;
+        Double c = 0.0;
+        for (MaterialTable m: materialData) {
+            if (m.getNameMat().equals("Виброизоляция")){
+                c = 2.0 * m.getAreaMat() * m.getDepthMat() * m.getCountMat();
+
+                w+=c;
+            }
+        }
+        weight.setText(String.valueOf(w));
+
     }
 
-    // подготавливаем данные для таблицы
+    //подготавливаем данные для таблицы
     private void initData(){
 
-        //создаем обьект Calculate в зависимости от типа обрабатываемого авто
-        switch (DataManager.getInstance().car.getType()){
+        //рассчет по элементам либо по площади
+        if (!Noise.getNavigation().getOptionsCarController().calculateByArea.isSelected()){
 
-            case Passenger_Car:
-                calculateCar = new CalculatePassengerCar(DataManager.getInstance().car);
-                break;
+            //создаем обьект Calculate в зависимости от типа обрабатываемого авто
+            switch (DataManager.getInstance().car.getType()){
 
-            case Bus:
-                calculateCar = new CalculateBus (DataManager.getInstance().car);
-                break;
+                case Passenger_Car:
+                    calculateCar = new CalculatePassengerCar(DataManager.getInstance().car);
+                    break;
 
-            case Truck:
-                calculateCar = new CalculateTruck (DataManager.getInstance().car);
-                break;
+                case Bus:
+                    calculateCar = new CalculateBus (DataManager.getInstance().car);
+                    break;
+
+                case Truck:
+                    calculateCar = new CalculateTruck (DataManager.getInstance().car);
+                    break;
+            }
+
+        } else {
+
+            calculateCar = new CalculateByArea(Double.parseDouble(Noise.getNavigation().getOptionsCarController()
+                    .elementArea.getText()));
+            //отключаем возможность навигации по элементам
+            hamburger.setDisable(true);
         }
+
 
         //добавляем в ObservableList новый обект, который будет отображен в таблице в виде строки
         materialData.addAll(calculateCar.getAllElements());

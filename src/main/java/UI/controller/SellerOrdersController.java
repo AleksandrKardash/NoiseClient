@@ -161,7 +161,7 @@ public class SellerOrdersController extends BaseController implements Initializa
 
     @FXML
     void refreshOrders(ActionEvent event) {
-
+        initData();
     }
 
     @FXML
@@ -201,11 +201,43 @@ public class SellerOrdersController extends BaseController implements Initializa
     @FXML
     void delOrder(ActionEvent event) {
 
+        //необходимые данные для формирования запроса
+        SellerOrders deleteOrder = getListAnswerCompleted();
+
+        //запаковываем запрос в виде ArrayList в обьект с инструкциями для его обработки, отправляем на сервер и получаем ответ
+        request = DataManager.getInstance().addRequest(new MyRequest(MyRequest.RequestType.DELETE, MyRequest.RequestTypeB.DELETE_ORDER, deleteOrder));
+
+        //ответ приводим к классу Integer
+        int answer = (Integer) request.getData();
+
+        //проверяем результат добавления нового материала
+        if (answer == 0) {
+            //удаляем строку из таблицы и обновляем таблицу
+            SellerOrders sellerOrders = tableCompletedOrders.getSelectionModel().getSelectedItem();
+            tableCompletedOrders.getItems().remove(sellerOrders);
+            initData();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(200, 100);
+            alert.setContentText("Заявка удалена!");
+            alert.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(200, 100);
+            alert.setContentText("Что-то пошло не так!");
+            alert.show();
+        }
     }
 
     //возвращает обьект из выбранной строки TableView
     public SellerOrders getListAnswer() {
         return tableNewOrders.getSelectionModel().getSelectedItem();
+    }
+
+    public SellerOrders getListAnswerCompleted() {
+        return tableCompletedOrders.getSelectionModel().getSelectedItem();
     }
 
 }

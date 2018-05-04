@@ -3,6 +3,7 @@ package UI.controller;
 
 import BD.DBHandler;
 import Noise.Noise;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -53,6 +54,24 @@ public class OptionsCarController extends BaseController implements Initializabl
     private JFXComboBox<Integer> comboBoxDoor;
 
     @FXML
+    public JFXCheckBox calculateByArea;
+
+    @FXML
+    public JFXComboBox<String> depthElement;
+
+    @FXML
+    public JFXTextField elementArea;
+
+    @FXML
+    public JFXCheckBox layerBlock;
+
+    @FXML
+    public JFXCheckBox layerVibro;
+
+    @FXML
+    public JFXCheckBox layerNoise;
+
+    @FXML
     private ImageView logo;
 
     @FXML
@@ -76,19 +95,28 @@ public class OptionsCarController extends BaseController implements Initializabl
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
-    //узнаем тип авто выбраного пользователем для загрузки в меню возможных опций
-    TypeAuto t = DataManager.getInstance().car.getType();
+        //узнаем тип авто выбраного пользователем для загрузки в меню возможных опций
+        TypeAuto t = DataManager.getInstance().car.getType();
 
-        if (t.equals(TypeAuto.Passenger_Car)) {
-            comboBoxClass.getItems().addAll("A", "B", "C", "D", "E", "F", "M - минивен", "J - кроссовер");
-            comboBoxDoor.getItems().addAll(1, 2, 3, 4, 5);
-        } else if (t.equals(TypeAuto.Bus)){
-            comboBoxClass.getItems().addAll("особо малый (микроавтобус)", "малый (6-7,5 м)", "средний (8-9,5 м)", "большой (10,5-12 м)");
-            comboBoxDoor.getItems().addAll(1, 2, 3, 4, 5);
-        } else if (t.equals(TypeAuto.Truck)){
-            comboBoxClass.setDisable(true);
-            comboBoxDoor.getItems().addAll(1, 2, 3, 4, 5);
-        }
+            if (t.equals(TypeAuto.Passenger_Car)) {
+                comboBoxClass.getItems().addAll("A", "B", "C", "D", "E", "F", "M - минивен", "J - кроссовер");
+                comboBoxDoor.getItems().addAll(1, 2, 3, 4, 5);
+            } else if (t.equals(TypeAuto.Bus)){
+                comboBoxClass.getItems().addAll("особо малый (микроавтобус)", "малый (6-7,5 м)", "средний (8-9,5 м)", "большой (10,5-12 м)");
+                comboBoxDoor.getItems().addAll(1, 2, 3, 4, 5);
+            } else if (t.equals(TypeAuto.Truck)){
+               comboBoxClass.setDisable(true);
+               comboBoxDoor.getItems().addAll(1, 2, 3, 4, 5);
+            }
+
+        depthElement.getItems().addAll("Минимум", "Стандарт", "Максимум");
+
+        //дезактивируем некоторые поля
+        elementArea.setDisable(true);
+        depthElement.setDisable(true);
+        layerBlock.setDisable(true);
+        layerNoise.setDisable(true);
+        layerVibro.setDisable(true);
 
     }
 
@@ -103,12 +131,20 @@ public class OptionsCarController extends BaseController implements Initializabl
     void nextStep(ActionEvent event) {
 
         //условие перехода к окну расчета
-        if(!manufacturerCar.getText().trim().isEmpty() && !modelCar.getText().trim().isEmpty()) {
+        if(!manufacturerCar.getText().trim().isEmpty() && !modelCar.getText().trim().isEmpty() && !calculateByArea.isSelected()) {
 
            Noise.getNavigation().load("/view/calculatingCar.fxml").Show();
            //записываем данные о модели и марке авто в уже созданный обьект Car
            DataManager.getInstance().car.setBrand(manufacturerCar.getText());
            DataManager.getInstance().car.setModel(modelCar.getText());
+
+        } else if (!manufacturerCar.getText().trim().isEmpty() && !modelCar.getText().trim().isEmpty() &&
+                calculateByArea.isSelected()&& !elementArea.getText().trim().isEmpty() && !depthElement.getValue().isEmpty()){
+
+            Noise.getNavigation().load("/view/calculatingCar.fxml").Show();
+            //записываем данные о модели и марке авто в уже созданный обьект Car
+            DataManager.getInstance().car.setBrand(manufacturerCar.getText());
+            DataManager.getInstance().car.setModel(modelCar.getText());
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -287,5 +323,44 @@ public class OptionsCarController extends BaseController implements Initializabl
         } else {
             DataManager.getInstance().car.setC(new ClassAuto("A"));
         }
+    }
+
+    //при выборе "рассчет по площади", дезактивируем "рассчет по элементам"
+    @FXML
+    void calculateByArea(ActionEvent event) {
+
+        if(calculateByArea.isSelected()){
+            elementArea.setDisable(false);
+            depthElement.setDisable(false);
+            layerBlock.setDisable(false);
+            layerNoise.setDisable(false);
+            layerVibro.setDisable(false);
+
+            comboBoxClass.setDisable(true);
+            comboBoxDoor.setDisable(true);
+            toggleArch.setDisable(true);
+            toggleFloor.setDisable(true);
+            toggleHood.setDisable(true);
+            toggleRoof.setDisable(true);
+            toggleTrunk.setDisable(true);
+            toggleWalls.setDisable(true);
+
+        } else {
+            elementArea.setDisable(true);
+            depthElement.setDisable(true);
+            layerBlock.setDisable(true);
+            layerNoise.setDisable(true);
+            layerVibro.setDisable(true);
+
+            comboBoxClass.setDisable(false);
+            comboBoxDoor.setDisable(false);
+            toggleArch.setDisable(false);
+            toggleFloor.setDisable(false);
+            toggleHood.setDisable(false);
+            toggleRoof.setDisable(false);
+            toggleTrunk.setDisable(false);
+            toggleWalls.setDisable(false);
+        }
+
     }
 }

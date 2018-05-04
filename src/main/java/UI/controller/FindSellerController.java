@@ -34,6 +34,7 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
 
 public class FindSellerController extends BaseController implements Initializable {
 
@@ -58,7 +59,7 @@ public class FindSellerController extends BaseController implements Initializabl
     private TableColumn<SellerTable, String> adress;
 
     @FXML
-    private JFXComboBox<String> sitySeller;
+    private JFXComboBox<String> citySeller;
 
     @FXML
     private JFXComboBox<String> gradeProduct;
@@ -81,7 +82,10 @@ public class FindSellerController extends BaseController implements Initializabl
 
 
         //заполняем ComboBox
-        sitySeller.getItems().addAll("Минск");
+        request = DataManager.getInstance().addRequest(new MyRequest(MyRequest.RequestType.READ, MyRequest.RequestTypeB.LIST_CITY, null));
+        ArrayList<String> city = (ArrayList<String>) request.getData();
+        ObservableList<String> items = citySeller.getItems();
+        items.addAll(city);
         gradeProduct.getItems().addAll("Эконом" , "Стандарт" , "Премиум");
 
 
@@ -101,7 +105,7 @@ public class FindSellerController extends BaseController implements Initializabl
 
         //необходимые данные для формирования запроса
         ArrayList<String> listA = new ArrayList<>();
-        listA.add(sitySeller.getValue());
+        listA.add(citySeller.getValue());
         listA.add(gradeProduct.getValue());
         ArrayList<MaterialTable> listB = DataManager.getInstance().selectedMaterials;
 

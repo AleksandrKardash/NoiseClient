@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -10,66 +16,65 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #938eaf;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" stylesheets="@NTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.SignUpController">
     <children>
-        <Text layoutX="199.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Регистрация">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Text>
-        <ImageView fitHeight="91.0" fitWidth="91.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <Label layoutX="348.0" layoutY="61.0" text="Регистрация" />
+        <ImageView fitHeight="114.0" fitWidth="111.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../image/car.png" />
             </image>
         </ImageView>
-        <TextField fx:id="login" layoutX="196.0" layoutY="138.0" prefHeight="32.0" prefWidth="221.0" promptText="Login" />
-        <PasswordField fx:id="password" layoutX="196.0" layoutY="180.0" prefHeight="32.0" prefWidth="221.0" promptText="Password" />
-        <TextField fx:id="name" layoutX="196.0" layoutY="255.0" prefHeight="32.0" prefWidth="221.0" promptText="Имя" />
-        <TextField fx:id="city" layoutX="196.0" layoutY="299.0" prefHeight="32.0" prefWidth="221.0" promptText="Город" />
-        <TextField fx:id="adress" layoutX="196.0" layoutY="342.0" prefHeight="32.0" prefWidth="221.0" promptText="Адрес" />
-        <TextField fx:id="mail" layoutX="196.0" layoutY="384.0" prefHeight="32.0" prefWidth="221.0" promptText="E-mail" />
-        <TextField fx:id="phone" layoutX="196.0" layoutY="425.0" prefHeight="32.0" prefWidth="221.0" promptText="Телефон" />
-        <Label layoutX="109.0" layoutY="145.0" text="Login:" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="145.0">
+        <TextField fx:id="login" layoutX="304.0" layoutY="127.0" prefHeight="32.0" prefWidth="221.0" promptText="Login" />
+        <PasswordField fx:id="password" layoutX="304.0" layoutY="169.0" prefHeight="32.0" prefWidth="221.0" promptText="Password" />
+        <TextField fx:id="name" layoutX="304.0" layoutY="244.0" prefHeight="32.0" prefWidth="221.0" promptText="Имя" />
+        <TextField fx:id="city" layoutX="304.0" layoutY="288.0" prefHeight="32.0" prefWidth="221.0" promptText="Город" />
+        <TextField fx:id="adress" layoutX="304.0" layoutY="331.0" prefHeight="32.0" prefWidth="221.0" promptText="Адрес" />
+        <TextField fx:id="mail" layoutX="304.0" layoutY="373.0" prefHeight="32.0" prefWidth="221.0" promptText="E-mail" />
+        <TextField fx:id="phone" layoutX="304.0" layoutY="414.0" prefHeight="32.0" prefWidth="221.0" promptText="Телефон" />
+        <Label layoutX="217.0" layoutY="134.0" text="Login:" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="134.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="108.0" layoutY="187.0" text="Password:" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="187.0">
+        <Label layoutX="216.0" layoutY="176.0" text="Password:" AnchorPane.leftAnchor="216.0" AnchorPane.topAnchor="176.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="108.0" layoutY="262.0" text="Имя:" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="262.0">
+        <Label layoutX="216.0" layoutY="251.0" text="Имя:" AnchorPane.leftAnchor="216.0" AnchorPane.topAnchor="251.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="109.0" layoutY="306.0" text="Город:" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="306.0">
+        <Label layoutX="217.0" layoutY="295.0" text="Город:" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="295.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="109.0" layoutY="349.0" text="Адрес:" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="349.0">
+        <Label layoutX="217.0" layoutY="338.0" text="Адрес:" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="338.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="109.0" layoutY="391.0" text="E-mail:" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="391.0">
+        <Label layoutX="217.0" layoutY="380.0" text="E-mail:" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="380.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="109.0" layoutY="432.0" text="Телефон:" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="432.0">
+        <Label layoutX="217.0" layoutY="421.0" text="Телефон:" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="421.0">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
-        <JFXButton layoutX="293.0" layoutY="492.0" mnemonicParsing="false" onAction="#register" prefHeight="32.0" prefWidth="123.0" style="-fx-background-color: #aaa5c6;" text="Register..." />
-        <JFXButton layoutX="221.0" layoutY="492.0" mnemonicParsing="false" onAction="#cancelSignUp" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: #aaa5c6;" text="Cancel" />
+        <JFXButton layoutX="441.0" layoutY="483.0" mnemonicParsing="false" onAction="#register" prefHeight="31.0" prefWidth="84.0" styleClass="ipad-dark-grey" text="Register..." />
+        <JFXButton layoutX="343.0" layoutY="483.0" mnemonicParsing="false" onAction="#cancelSignUp" prefHeight="31.0" prefWidth="84.0" styleClass="ipad-dark-grey" text="Cancel" />
         <Label fx:id="labelError" layoutX="117.0" layoutY="458.0" prefHeight="32.0" prefWidth="302.0" textFill="#b50e0e" AnchorPane.leftAnchor="117.0">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
     </children>
+    <styleClass>
+        <String fx:value="background2" />
+    </styleClass>
 </AnchorPane>

@@ -15,6 +15,7 @@ public class Navigation {
 
     private final Stage stage;
     private final Scene scene;
+    private Controller findController = null;
 
     private List<Controller> controllers = new ArrayList<>();
 
@@ -88,31 +89,43 @@ public class Navigation {
         System.out.println("Add to history: " + controller.toString() + ". Total scenes: " + controllers.size());
     }
 
-
     //метод для получения ссылки на CalculatingCarController
     public CalculatingCarController getCalculatingCarController(){
-        if (controllers.get(controllers.size() - 1) instanceof CalculatingCarController) {
-            return (CalculatingCarController) controllers.get(controllers.size() - 1);
-        } else {
-            return null;
+        for (Controller c: controllers) {
+            if (c instanceof CalculatingCarController){
+                findController = c;
+            }
         }
+        return (CalculatingCarController) findController;
     }
 
     //метод для получения ссылки на FindSellerController
     public FindSellerController getFindSellerController (){
-        if (controllers.get(controllers.size() - 1) instanceof FindSellerController) {
-            return (FindSellerController) controllers.get(controllers.size() - 1);
-        } else {
-            return null;
+        for (Controller c: controllers) {
+            if (c instanceof FindSellerController){
+                findController = c;
+            }
         }
+        return (FindSellerController) findController;
     }
 
     //метод для получения ссылки на SellerOrdersController
     public SellerOrdersController getSellerOrdersController (){
-        if (controllers.get(controllers.size() - 1) instanceof SellerOrdersController) {
-            return (SellerOrdersController) controllers.get(controllers.size() - 1);
-        } else {
-            return null;
+        for (Controller c: controllers) {
+            if (c instanceof SellerOrdersController){
+                findController = c;
+            }
         }
+        return (SellerOrdersController) findController;
+    }
+
+    //метод для получения ссылки на OptionsCarController
+    public OptionsCarController getOptionsCarController (){
+        for (Controller c: controllers) {
+            if (c instanceof OptionsCarController){
+                findController = c;
+            }
+        }
+        return (OptionsCarController) findController;
     }
 }

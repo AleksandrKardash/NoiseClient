@@ -5,12 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import manager.DataManager;
 import models.Table.MaterialTable;
 import models.Table.SellerMaterialTable;
+import models.Table.SellerOrders;
 import net.MyRequest;
 
 import java.net.URL;
@@ -105,6 +107,34 @@ public class SellerMyProductController extends BaseController implements Initial
     @FXML
     void delProduct(ActionEvent event) {
 
+        //необходимые данные для формирования запроса
+        SellerMaterialTable deleteProduct = tableMyProduct.getSelectionModel().getSelectedItem();
+
+        //запаковываем запрос в виде ArrayList в обьект с инструкциями для его обработки, отправляем на сервер и получаем ответ
+        request = DataManager.getInstance().addRequest(new MyRequest(MyRequest.RequestType.DELETE, MyRequest.RequestTypeB.DELETE_PRODUCT, deleteProduct));
+
+        //ответ приводим к классу Integer
+        int answer = (Integer) request.getData();
+
+        //проверяем результат добавления нового материала
+        if (answer == 0) {
+            //удаляем строку из таблицы и обновляем таблицу
+            SellerMaterialTable sellerOrders = tableMyProduct.getSelectionModel().getSelectedItem();
+            tableMyProduct.getItems().remove(sellerOrders);
+            initData();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(200, 100);
+            alert.setContentText("Продукт удален!");
+            alert.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(200, 100);
+            alert.setContentText("Что-то пошло не так!");
+            alert.show();
+        }
     }
 
 }

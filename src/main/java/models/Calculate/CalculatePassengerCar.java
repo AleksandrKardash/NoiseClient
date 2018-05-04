@@ -303,34 +303,42 @@ public class CalculatePassengerCar implements Calculate {
         }
         return notDoubleList;
     }
+
     @Override
     public ArrayList<MaterialTable> getFloor() {
         return floor;
     }
+
     @Override
     public ArrayList<MaterialTable> getDoor() {
         return door;
     }
+
     @Override
     public ArrayList<MaterialTable> getRoof() {
         return roof;
     }
+
     @Override
     public ArrayList<MaterialTable> getArch() {
         return arch;
     }
+
     @Override
     public ArrayList<MaterialTable> getHood() {
         return hood;
     }
+
     @Override
     public ArrayList<MaterialTable> getTrunk() {
         return trunk;
     }
+
     @Override
     public ArrayList<MaterialTable> getWalls() {
         return null;
     }
+
     @Override
     public ArrayList<MaterialTable> getAllElements() {
         return allElements;

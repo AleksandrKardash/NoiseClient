@@ -9,12 +9,12 @@ public class CalculateBus implements Calculate {
 
     private ArrayList<MaterialTable> floor;   //пол
     private ArrayList<MaterialTable> floorS;  //пол
-    private ArrayList<MaterialTable> door;        //двери
+    private ArrayList<MaterialTable> door;    //двери
     private ArrayList<MaterialTable> roof;    //крыша
-    private ArrayList<MaterialTable> arch;        //арки
+    private ArrayList<MaterialTable> arch;    //арки
     private ArrayList<MaterialTable> hood;    //капот
-    private ArrayList<MaterialTable> trunk;  //багажник
-    private ArrayList<MaterialTable> walls;  //стенки
+    private ArrayList<MaterialTable> trunk;   //багажник
+    private ArrayList<MaterialTable> walls;   //стенки
 
     public CalculateBus(Car car) {
     }

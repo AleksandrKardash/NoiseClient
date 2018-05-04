@@ -10,35 +10,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" styleClass="background2" stylesheets="@NTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.FindSellerController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="background2" stylesheets="@NTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.controller.FindSellerController">
    <children>
-      <AnchorPane prefHeight="90.0" prefWidth="500.0">
+      <AnchorPane prefHeight="100.0" prefWidth="500.0">
          <children>
-            <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="46.0" text="Город" />
-            <JFXComboBox fx:id="sitySeller" layoutX="14.0" layoutY="27.0" prefHeight="25.0" prefWidth="178.0" />
-            <JFXCheckBox fx:id="deliveryPossibility" layoutX="3.0" layoutY="63.0" text="Доставка с других регионов" />
-            <JFXButton layoutX="393.0" layoutY="10.0" onAction="#findSeller" prefHeight="70.0" prefWidth="90.0" styleClass="ipad-dark-grey" text="Найти" />
-            <Label layoutX="220.0" layoutY="6.0" text="Класс материалов" />
-            <JFXComboBox fx:id="gradeProduct" layoutX="220.0" layoutY="27.0" prefHeight="25.0" prefWidth="107.0" />
+            <Label layoutX="23.0" layoutY="11.0" prefHeight="17.0" prefWidth="46.0" text="Город" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0" />
+            <JFXComboBox fx:id="citySeller" layoutX="23.0" layoutY="32.0" prefHeight="25.0" prefWidth="178.0" AnchorPane.leftAnchor="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding></JFXComboBox>
+            <JFXCheckBox fx:id="deliveryPossibility" layoutX="13.0" layoutY="80.0" prefHeight="17.0" prefWidth="178.0" text="Доставка с других регионов" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding></JFXCheckBox>
+            <JFXButton layoutX="686.0" layoutY="20.0" onAction="#findSeller" prefHeight="60.0" prefWidth="90.0" styleClass="ipad-dark-grey" text="Найти" AnchorPane.rightAnchor="20.0" />
+            <Label layoutX="229.0" layoutY="11.0" text="Класс материалов" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="15.0" />
+            <JFXComboBox fx:id="gradeProduct" layoutX="229.0" layoutY="32.0" prefHeight="25.0" prefWidth="107.0" AnchorPane.leftAnchor="240.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding></JFXComboBox>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="400.0" prefWidth="500.0">
+      <AnchorPane prefHeight="390.0" prefWidth="500.0">
          <children>
-            <TableView fx:id="tableSeller" layoutY="8.0" prefHeight="376.0" prefWidth="500.0">
+            <TableView fx:id="tableSeller" prefHeight="376.0" prefWidth="800.0">
               <columns>
-                  <TableColumn fx:id="seller" prefWidth="148.0" text="Продавец" />
-                <TableColumn fx:id="adress" prefWidth="153.0" text="Адрес" />
-                <TableColumn fx:id="cost" minWidth="0.0" prefWidth="91.0" text="Стоимость" />
-                  <TableColumn fx:id="delivery" prefWidth="107.0" text="Доставка" />
+                  <TableColumn fx:id="seller" prefWidth="220.0" text="Продавец" />
+                <TableColumn fx:id="adress" prefWidth="335.0" text="Адрес" />
+                <TableColumn fx:id="cost" minWidth="0.0" prefWidth="120.0" text="Стоимость" />
+                  <TableColumn fx:id="delivery" prefWidth="120.0" text="Доставка" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="110.0" prefWidth="500.0">
+      <AnchorPane prefHeight="60.0" prefWidth="800.0">
          <children>
-            <JFXButton layoutX="22.0" layoutY="62.0" onAction="#goBack" prefHeight="30.0" prefWidth="210.0" styleClass="ipad-dark-grey" text="Назад" />
-            <JFXButton fx:id="sendOrder" layoutX="263.0" layoutY="20.0" onAction="#sendOrder" prefHeight="70.0" prefWidth="210.0" styleClass="ipad-dark-grey" text="Отправить заявку" textAlignment="CENTER" wrapText="true" />
-            <JFXButton layoutX="22.0" layoutY="21.0" onAction="#moreInfo" prefHeight="30.0" prefWidth="210.0" styleClass="ipad-dark-grey" text="Подробнее" />
+            <JFXButton layoutX="22.0" layoutY="6.0" onAction="#goBack" prefHeight="31.0" prefWidth="220.0" styleClass="ipad-dark-grey" text="Назад" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0" />
+            <JFXButton fx:id="sendOrder" layoutX="566.0" layoutY="6.0" onAction="#sendOrder" prefHeight="31.0" prefWidth="220.0" styleClass="ipad-dark-grey" text="Отправить заявку" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0" />
+            <JFXButton layoutX="290.0" layoutY="6.0" onAction="#moreInfo" prefHeight="31.0" prefWidth="220.0" styleClass="ipad-dark-grey" text="Подробнее" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
    </children>

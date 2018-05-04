@@ -6,12 +6,22 @@ import models.Table.MaterialTable;
 import java.util.ArrayList;
 
 public class CalculateTruck implements Calculate {
+
+    private ArrayList<MaterialTable> floor;   //пол
+    private ArrayList<MaterialTable> floorS;  //пол
+    private ArrayList<MaterialTable> door;    //двери
+    private ArrayList<MaterialTable> roof;    //крыша
+    private ArrayList<MaterialTable> arch;    //арки
+    private ArrayList<MaterialTable> hood;    //капот
+    private ArrayList<MaterialTable> trunk;   //багажник
+    private ArrayList<MaterialTable> walls;   //стенки
+
+
+    public CalculateTruck(Car car) {
+    }
     @Override
     public ArrayList<MaterialTable> getFloor() {
         return null;
-    }
-
-    public CalculateTruck(Car car) {
     }
 
     @Override
