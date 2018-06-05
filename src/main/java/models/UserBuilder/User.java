@@ -55,7 +55,7 @@ public class User  implements Serializable {
         return seller;
     }
 
-    public static class Builder implements UserBuilder{
+    public static class Builder implements UserBuilder {
 
 
         private static User user = new User();

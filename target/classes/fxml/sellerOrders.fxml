@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="800.0" styleClass="background2" stylesheets="@../NTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SellerOrdersController">
+    <children>
+        <JFXTabPane prefHeight="440.0" prefWidth="800.0">
+            <tabs>
+                <Tab text="Новые заказы">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="800.0">
+                            <children>
+                                <JFXButton layoutX="18.0" layoutY="62.0" onAction="#moreInfo" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Подробнее" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="62.0" />
+                                <JFXButton layoutX="18.0" layoutY="208.0" onAction="#refreshOrders" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Обновить" AnchorPane.leftAnchor="18.0" />
+                                <JFXButton layoutX="18.0" layoutY="135.0" onAction="#confirmOrder" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Подтвердить" AnchorPane.leftAnchor="18.0" />
+                                <TableView fx:id="tableNewOrders" layoutX="133.0" layoutY="4.0" prefHeight="390.0" prefWidth="665.0">
+                                    <columns>
+                                        <TableColumn fx:id="idOrder" prefWidth="48.0" text="№" />
+                                        <TableColumn fx:id="adress" prefWidth="300.0" text="Клиент" />
+                                        <TableColumn fx:id="telNumber" prefWidth="150.0" text="Телефон" />
+                                        <TableColumn fx:id="value" prefWidth="85.0" text="Сумма" />
+                                        <TableColumn fx:id="dateOrder" text="Дата" />
+                                    </columns>
+                                </TableView>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Обработанные заказы">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="800.0">
+                            <children>
+                                <JFXButton layoutX="18.0" layoutY="138.0" onAction="#delOrder" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Удалить" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="62.0" />
+                                <JFXButton layoutX="24.0" layoutY="212.0" onAction="#refreshOrders" prefHeight="60.0" prefWidth="95.0" styleClass="ipad-dark-grey" text="Обновить" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="138.0" />
+                        <TableView fx:id="tableCompletedOrders" layoutX="132.0" layoutY="3.0" prefHeight="390.0" prefWidth="665.0">
+                           <columns>
+                              <TableColumn fx:id="idOrderCompleted" prefWidth="48.0" text="№" />
+                              <TableColumn fx:id="adressCompleted" prefWidth="300.0" text="Клиент" />
+                              <TableColumn fx:id="telNumberCompleted" prefWidth="150.0" text="Телефон" />
+                              <TableColumn fx:id="valueCompleted" prefWidth="85.0" text="Сумма" />
+                              <TableColumn fx:id="dateOrderCompleted" text="Дата" />
+                           </columns>
+                        </TableView>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </JFXTabPane>
+    </children>
+</Pane>

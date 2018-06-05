@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="-Infinity" prefHeight="500.0" prefWidth="150.0" styleClass="background" stylesheets="@../NTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuContentController">
+   <children>
+      <ImageView fitHeight="119.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/log3.png" />
+         </image>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></ImageView>
+      <JFXButton onAction="#selectFloor" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Пол">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectDoor" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Двери">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectTrunk" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Багажник">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectHood" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Капот">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectRoof" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Потолок">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectArch" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Арки">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectWalls" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Стенки">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin></JFXButton>
+      <JFXButton onAction="#selectAll" prefHeight="40.0" prefWidth="150.0" styleClass="ipad-dark-greyB" text="Итого">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin></JFXButton>
+   </children>
+</VBox>

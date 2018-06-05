@@ -1,7 +1,5 @@
 package net;
 
-import models.UserBuilder.User;
-
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;

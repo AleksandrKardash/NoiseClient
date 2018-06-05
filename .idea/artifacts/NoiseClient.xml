@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="NoiseClient">
+    <output-path>$PROJECT_DIR$/out/artifacts/NoiseClient</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="Noise.Noise" />
+        <option name="description" value="" />
+        <option name="height" value="550" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+        <option name="width" value="800" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="NoiseClient.jar">
+        <element id="module-output" name="NoiseClient" />
+      </element>
+      <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" />
+      <element id="library" level="project" name="Maven: junit:junit:4.10" />
+      <element id="library" level="project" name="Maven: com.jfoenix:jfoenix:1.5.0" />
+      <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
+      <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.44" />
+    </root>
+  </artifact>
+</component>

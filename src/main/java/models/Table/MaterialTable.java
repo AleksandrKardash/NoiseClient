@@ -1,8 +1,5 @@
 package models.Table;
 
-import UI.controller.CalculatingCarController;
-import UI.controller.MainController;
-
 import java.io.Serializable;
 
 //класс для формирования таблицы общего расчета количества материалов

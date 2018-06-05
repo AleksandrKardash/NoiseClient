@@ -4,7 +4,6 @@ import models.BuilderCar.Car;
 import models.Table.MaterialTable;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Objects;
 
 //класс для рассчета необходимого материала по элементам

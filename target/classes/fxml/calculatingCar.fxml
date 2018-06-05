@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="550.0" prefWidth="800.0" styleClass="background2" stylesheets="@../NTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalculatingCarController">
+    <children>
+        <AnchorPane fx:id="anchorPane" prefHeight="490.0" prefWidth="800.0">
+            <children>
+                <Label layoutX="647.0" layoutY="24.0" text="По элементам">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label text="ИТОГО:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="200.0">
+                    <font>
+                        <Font name="Arial Bold" size="26.0" />
+                    </font>
+                </Label>
+                <Label text="ВЕС:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="290.0">
+                    <font>
+                        <Font name="Arial Bold" size="26.0" />
+                    </font>
+                </Label>
+                <Label fx:id="weight" text="00" textFill="#723b3b" AnchorPane.leftAnchor="95.0" AnchorPane.topAnchor="290.0">
+                    <font>
+                        <Font name="Arial Bold" size="26.0" />
+                    </font>
+                </Label>
+                <JFXDrawer fx:id="leftMenu" alignment="TOP_CENTER" defaultDrawerSize="190.0" prefHeight="500.0" prefWidth="150.0" />
+                <JFXHamburger fx:id="hamburger" layoutX="731.0" layoutY="22.0" prefHeight="20.0" prefWidth="55.0" />
+                <TableView fx:id="materialTable" layoutX="154.0" layoutY="57.0" prefHeight="441.0" prefWidth="643.0" stylesheets="@../NTheme.css">
+                    <columns>
+                        <TableColumn fx:id="nameMat" prefWidth="279.0" text="Наименование " />
+                        <TableColumn fx:id="areaMat" minWidth="0.0" prefWidth="130.0" text="Размер" />
+                        <TableColumn fx:id="depthMat" prefWidth="130.0" text="Толщина" />
+                        <TableColumn fx:id="countMat" minWidth="0.0" prefWidth="120.0" text="Кол-во" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="60.0" prefWidth="800.0">
+            <children>
+                <JFXButton layoutX="30.0" layoutY="-1.0" onAction="#goBack" prefHeight="31.0" prefWidth="220.0" styleClass="ipad-dark-grey" text="Назад" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="5.0" />
+                <JFXButton layoutX="290.0" layoutY="10.0" onAction="#findSeller" prefHeight="31.0" prefWidth="220.0" styleClass="ipad-dark-grey" text="Найти продавца..." AnchorPane.topAnchor="5.0" />
+                <JFXButton layoutX="555.0" layoutY="10.0" onAction="#saveList" prefHeight="31.0" prefWidth="220.0" styleClass="ipad-dark-grey" text="Сохранить..." AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
